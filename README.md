@@ -5,3 +5,4 @@
 - need to create your own `.env` file with bot token and store in the same directory as `bot.py`
 - used "cog" for extensibility
 - Dockerfile for optional container deployment
+- [example commands](commands.md) you would run for container deployment
