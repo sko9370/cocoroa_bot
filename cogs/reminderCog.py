@@ -16,24 +16,19 @@ class reminderCog(commands.Cog):
     async def on_message(self, message):
         if message.author == self.bot.user:
             return
-        
         elif message.content == 'Home':
             await message.channel.send("Welcome back")
             self.channel = message.channel
             self.first = True
             self.reminder.start()
-
         elif message.content == 'Sleep':
             await message.channel.send("Good night")
             self.reminder.cancel()
-            
-        
         elif message.content == 'Work':
             await message.channel.send("Safe drive")
             self.reminder.cancel()
 
-    @tasks.loop(seconds=5)
-    #@tasks.loop(hours=1)
+    @tasks.loop(hours=1)
     async def reminder(self):
         if self.first:
             self.first = False
